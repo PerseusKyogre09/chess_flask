@@ -19,6 +19,26 @@ git clone https://github.com/PerseusKyogre09/chess_flask.git
 cd chess_flask
 ```
 
+## Running the Application
+To run the Flask application, follow these steps:
+
+1. Install the required dependencies:
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+2. Set the `FLASK_APP` environment variable:
+    ```sh
+    export FLASK_APP=app.py
+    ```
+
+3. Run the Flask development server:
+    ```sh
+    flask run
+    ```
+
+4. Open your web browser and navigate to `http://127.0.0.1:5000` to view the application.
+
 ## Contributing
 Contributions are welcome! Please read the contributing guidelines before submitting a pull request.
 
