@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div id="notification" style="display:none;"></div>
+    <div class="container">
+        <h1 class="game-title">Chess Game</h1>
+        <div id="chess-board">
+            {% for row in range(8) %}
+                <div class="row">
+                    {% for col in range(8) %}
+                        <div class="cell" data-row="{{ row }}" data-col="{{ col }}"
+                            style="background-color: {% if (row + col) % 2 == 0 %} #f0d9b5 {% else %} #b58863 {% endif %};">
+                            {% set square = chess.square(col, 7 - row) %}
+                            {% if board.piece_at(square) %}
+                                {% set piece = board.piece_at(square) %}
+                                {% if piece.color == chess.WHITE %}
+                                    {% if piece.piece_type == chess.PAWN %}
+                                        <img src="{{ url_for('static', filename='images/wp.png') }}" alt="White Pawn">
+                                    {% elif piece.piece_type == chess.KNIGHT %}
+                                        <img src="{{ url_for('static', filename='images/wn.png') }}" alt="White Knight">
+                                    {% elif piece.piece_type == chess.BISHOP %}
+                                        <img src="{{ url_for('static', filename='images/wb.png') }}" alt="White Bishop">
+                                    {% elif piece.piece_type == chess.ROOK %}
+                                        <img src="{{ url_for('static', filename='images/wr.png') }}" alt="White Rook">
+                                    {% elif piece.piece_type == chess.QUEEN %}
+                                        <img src="{{ url_for('static', filename='images/wq.png') }}" alt="White Queen">
+                                    {% elif piece.piece_type == chess.KING %}
+                                        <img src="{{ url_for('static', filename='images/wk.png') }}" alt="White King">
+                                    {% endif %}
+                                {% else %}
+                                    {% if piece.piece_type == chess.PAWN %}
+                                        <img src="{{ url_for('static', filename='images/bp.png') }}" alt="Black Pawn">
+                                    {% elif piece.piece_type == chess.KNIGHT %}
+                                        <img src="{{ url_for('static', filename='images/bn.png') }}" alt="Black Knight">
+                                    {% elif piece.piece_type == chess.BISHOP %}
+                                        <img src="{{ url_for('static', filename='images/bb.png') }}" alt="Black Bishop">
+                                    {% elif piece.piece_type == chess.ROOK %}
+                                        <img src="{{ url_for('static', filename='images/br.png') }}" alt="Black Rook">
+                                    {% elif piece.piece_type == chess.QUEEN %}
+                                        <img src="{{ url_for('static', filename='images/bq.png') }}" alt="Black Queen">
+                                    {% elif piece.piece_type == chess.KING %}
+                                        <img src="{{ url_for('static', filename='images/bk.png') }}" alt="Black King">
+                                    {% endif %}
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
