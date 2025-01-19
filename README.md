@@ -40,9 +40,9 @@ To run the Flask application, follow these steps:
 4. Open your web browser and navigate to `http://127.0.0.1:5000` to view the application.
 
 ## Screenshots
-![SS1](https://imgur.com/1kNeVsH)
-![SS2](https://imgur.com/UJTot2H)
-![SS3](https://imgur.com/HKvDWNW)
+![SS1](https://imgur.com/1kNeVsH.png)
+![SS2](https://imgur.com/UJTot2H.png)
+![SS3](https://imgur.com/HKvDWNW.png)
 
 ## Contributing
 Contributions are welcome! Please read the contributing guidelines before submitting a pull request.
